@@ -61,7 +61,7 @@ with h5py.File("aws_final_fast.h5", "w") as hdf:
 
         ec2 = boto3.client("ec2", region_name=region)
 
-        # ⚡ Load pricing for only this region
+        # Load pricing for only this region
         price_map = get_region_prices(region)
 
         instances, vcpus, memories, prices = [], [], [], []
@@ -91,6 +91,6 @@ with h5py.File("aws_final_fast.h5", "w") as hdf:
         grp.create_dataset("memory", data=memories)
         grp.create_dataset("pricing", data=prices)
 
-        print(f"✅ {region}: {len(instances)} instances")
+        print(f" {region}: {len(instances)} instances")
 
 print("\n DONE")
